@@ -1,0 +1,1 @@
+mvn deploy:deploy-file -DgroupId=gr.ntua.image -DartifactId=MediaChecker -Dversion=1.0-SNAPSHOT -Dpackaging=jar-Dfile=/Users/Finik/Documents/Work/Europeana/contrib/ntua/mediachecker/target/MediaChecker-1.0-SNAPSHOT.jar -DrepositoryId=artifactory -Durl=http://artifactory.eanadev.org/artifactory/libs-snapshot -DgeneratePom=true
