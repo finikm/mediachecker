@@ -1,0 +1,61 @@
+# MediaChecker Daemon
+
+A simple daemon that listens to a port for queries.
+
+Daemon starts with:
+
+```bash
+java -jar MediaChecker-1.0.jar PORT
+```
+
+where `PORT` the listening port.
+
+The daemon expects as input the (full) `filename` of the media file to be processed. As an answer, it returns a JSON string.
+
+## Examples
+
+### Image
+
+```json
+{
+  "colorspace": "sRGB",
+  "format": "JPEG",
+  "width": 1280,
+  "mimetype": "image/jpeg",
+  "palette": [
+    "#000000",
+    "#DC143C",
+    "#800000",
+    "#B22222",
+    "#A52A2A",
+    "#FF1493 "
+  ],
+  "height": 1024
+}
+```
+
+### Audio File
+```json
+{
+  "duration": 5000,
+  "bitdepth": 16,
+  "channels": 2,
+  "mimetype": "audio/x-flac",
+  "bitrate": 0,
+  "fileformat": "flac",
+  "samplerate": 44100
+}
+```
+
+### Video File
+```json
+{
+  "duration": 4966,
+  "codec": "mpeg4",
+  "framerate": 30,
+  "width": 190,
+  "mimetype": "video/mp4",
+  "bitrate": 341948,
+  "height": 240
+}
+```
