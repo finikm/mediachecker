@@ -28,7 +28,8 @@ public class MediaCheckerTest {
 		Assert.assertEquals("JPEG", ii.getFileFormat());
 		Assert.assertEquals(1280, ii.getWidth());
 		Assert.assertEquals(1024, ii.getHeight());
-		Assert.assertEquals("sRGB", ii.getColorSpace());
+		// Older versions of ImageMagick (prior to 6.7.5-5) only support RGB, so the test should pass on both cases
+		Assert.assertTrue(ii.getColorSpace().equals("RGB") || ii.getColorSpace().equals("sRGB"));
 		Assert.assertArrayEquals(colors, ii.getPalette());
 	}
 
