@@ -1,3 +1,6 @@
+[![License](http://img.shields.io/:license-mit-blue.svg)](https://opensource.org/licenses/MIT)
+[![Build Status](https://travis-ci.org/finikm/mediachecker.svg)](https://travis-ci.org/finikm/mediachecker)
+
 # MediaChecker Library
 
 MediaChecker was developed as a collection of static functions that wrap around some of the best media analysis libraries available today. These libraries include [ImageMagick](http://www.imagemagick.org/) for images, [FFMPEG](https://www.ffmpeg.org/) for audio/video and [iTextPDF](http://itextpdf.com/) for PDF files.
