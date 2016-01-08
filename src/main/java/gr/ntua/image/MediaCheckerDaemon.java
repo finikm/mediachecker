@@ -81,7 +81,7 @@ public class MediaCheckerDaemon extends Daemon {
 			daemon.startListener(listenPort);
 			System.out.println("Daemon is now listening for connections on port " + listenPort);
 
-			while(daemon.isListening()) {
+			while (daemon.isListening()) {
 				new Connection(daemon.accept(), daemon).start();
 			}
 

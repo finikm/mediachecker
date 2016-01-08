@@ -31,7 +31,7 @@ public class Connection extends Thread {
 			String inputLine;
 			while ((inputLine = in.readLine()) != null) {
 				String result = result = daemon.processQuery(inputLine);
-				out.println(result);
+				out.println(result + "\n");
 				break;	// Only one command is used for this connection
 			}
 

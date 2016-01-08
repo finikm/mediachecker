@@ -63,7 +63,7 @@ public class MediaChecker {
 		ii                = new Info(filename);
 		String colorSpace = ii.getProperty("Colorspace");
 
-		// Get 6 dominant colors from the image
+		// Get dominant colors from the image
 		ConvertCmd cmd                 = new ConvertCmd();
 		IMOperation op                 = new IMOperation();
 		ArrayListOutputConsumer output = new ArrayListOutputConsumer();
@@ -219,6 +219,13 @@ public class MediaChecker {
 		}
 	}
 
+	/**
+	 * If the PDF file contains ONLY ONE image, it returns the DPI of the image. Otherwise, it returns -1. Text only files return 0.
+	 * @param  filename              file to be checked
+	 * @return
+	 * @throws IOException
+	 * @throws FileNotFoundException
+	 */
 	protected static int getDPI(String filename) throws IOException, FileNotFoundException {
 		PdfReader reader = new PdfReader(filename);
 		PdfReaderContentParser parser = new PdfReaderContentParser(reader);
@@ -317,43 +324,4 @@ public class MediaChecker {
 
 		}
 	}
-
-	// public static void main(String args[]) {
-	// 	if (args.length < 2) {
-	// 		System.out.println("No input file!");
-	// 		return;
-	// 	}
-
-	// 	try {
-	// 		if (args[0].equals("-b")) {
-	// 			BufferedReader br = new BufferedReader(new FileReader(args[1]));
-
-	// 			for (String line ; (line = br.readLine()) != null ;) {
-	// 				ImageInfo ii = MediaChecker.getImageInfo(line, "colormap.png");
-	// 				JSONObject jo = ii.toJSON();
-	// 				jo.put("filesize", getFileSize(line));
-	// 				jo.put("version", getVersion());
-
-	// 				PrintWriter out = new PrintWriter(line + ".json");
-	// 				out.println(jo.toString());
-	// 				out.close();
-	// 			}
-
-	// 			br.close();
-	// 		}
-	// 		else if (args[0].equals("-i")) {
-	// 			ImageInfo ii = MediaChecker.getImageInfo(args[1], "colormap.png");
-	// 			JSONObject jo = ii.toJSON();
-	// 			jo.put("filesize", getFileSize(args[1]));
-	// 			jo.put("version", getVersion());
-
-	// 			PrintWriter out = new PrintWriter(args[1] + ".json");
-	// 			out.println(jo.toString());
-	// 			out.close();
-	// 		}
-	// 	} catch (Exception e) {
-	// 		System.out.println(e.getMessage());
-	// 		return;
-	// 	}
-	// }
 }
